@@ -1,0 +1,2 @@
+# ElectronChat
+一个基于VUE3与Electron创建的聊天框架，用于作为RAG网络构建的前端
