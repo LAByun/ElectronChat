@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # vueTest
 
 This template should help get you started developing with Vue 3 in Vite.
@@ -27,3 +28,8 @@ npm run dev
 ```sh
 npm run build
 ```
+=======
+# ElectronChat
+一个基于VUE3与Electron创建的聊天框架，用于作为RAG网络构建的前端
+该内容只包含前段框架和向后端请求的相关代码
+>>>>>>> 23a623a17e1d6b1583eb00e05b4bf8dfff98294a
