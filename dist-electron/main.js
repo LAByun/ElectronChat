@@ -1,11 +1,9 @@
-import { app, ipcMain, BrowserWindow } from "electron";
-import path, { dirname } from "node:path";
+import { app as o, ipcMain as r, BrowserWindow as i } from "electron";
+import l, { dirname as a } from "node:path";
 import "child_process";
-import { fileURLToPath } from "node:url";
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const createWindow = () => {
-  const win = new BrowserWindow({
+import { fileURLToPath as s } from "node:url";
+const h = s(import.meta.url), d = a(h), n = () => {
+  const e = new i({
     width: 1280,
     height: 800,
     // remove the default titlebar
@@ -17,30 +15,22 @@ const createWindow = () => {
       height: 30
     },
     webPreferences: {
-      webSecurity: false,
+      webSecurity: !1,
       // 关闭安全策略
-      nodeIntegration: true,
+      nodeIntegration: !0,
       // 开启Node集成
-      contextIsolation: true,
+      contextIsolation: !0,
       // 为false时可能导致预加载脚本无法启动
-      preload: path.join(__dirname, "preload.mjs")
+      preload: l.join(d, "preload.mjs")
     }
   });
-  win.setMenu(null);
-  win.loadURL("http://localhost:5173");
-  win.webContents.openDevTools();
+  e.setMenu(null), e.loadURL("http://localhost:5173"), e.webContents.openDevTools();
 };
-app.whenReady().then(() => {
-  ipcMain.handle("ping", () => {
-    return "pong";
-  });
-  createWindow();
-  app.on("activate", () => {
-    if (BrowserWindow.getAllWindows().length === 0) createWindow();
+o.whenReady().then(() => {
+  r.handle("ping", (e, t) => (console.log(t), t + "hahah")), n(), o.on("activate", () => {
+    i.getAllWindows().length === 0 && n();
   });
 });
-app.on("window-all-closed", () => {
-  if (process.platform !== "darwin") {
-    app.quit();
-  }
+o.on("window-all-closed", () => {
+  process.platform !== "darwin" && o.quit();
 });

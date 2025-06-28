@@ -103,8 +103,9 @@ function startPythonBackend() {
 
 app.whenReady().then(() => {
   //配置监听
-  ipcMain.handle('ping', () => {
-    return 'pong'; // 这里可以返回任何你想要的数据 
+  ipcMain.handle('ping', (event,mydata1) => {
+    console.log(mydata1);
+    return mydata1+"hahah"; // 这里可以返回任何你想要的数据 
   })
   // startPythonBackend(); // 启动Python后端
   // 创建窗口
